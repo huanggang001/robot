@@ -1,0 +1,16 @@
+*** Settings ***
+Library           Selenium2Library
+Library           RequestsLibrary
+
+*** Test Cases ***
+uicase
+    Open Browser    http://localhost/admin.php?m=mgr/admin.login    gc    #打开浏览器
+    Click Element    id=username    # 点击一个元素
+    Input Text    id=username    admin
+    Click Button    id=password    # 点击一个控件
+    Input Text    id=password    admin
+    Click Button    xpath=//*[@id="loginFrm"]/input    #点击登录
+    Set Browser Implicit Wait    10    # 设置全局等待
+    Click Element    xpath=//*[@id="header"]/ul/li[3]/a    #点击会员中心
+    sleep    5
+    Close Browser
